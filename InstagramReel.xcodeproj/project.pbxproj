@@ -12,6 +12,11 @@
 		F3F40FFE2B791DAF00C789F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F40FFD2B791DAF00C789F5 /* Assets.xcassets */; };
 		F3F410012B791DAF00C789F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3F40FFF2B791DAF00C789F5 /* LaunchScreen.storyboard */; };
 		F3F410092B7935E600C789F5 /* ReelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410082B7935E600C789F5 /* ReelContainerView.swift */; };
+		F3F4100B2B7A7EEC00C789F5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F4100A2B7A7EEC00C789F5 /* TabBarController.swift */; };
+		F3F4100D2B7A979900C789F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F4100C2B7A979900C789F5 /* SearchViewController.swift */; };
+		F3F410112B7AA8A300C789F5 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410102B7AA8A300C789F5 /* AddViewController.swift */; };
+		F3F410132B7AAC1400C789F5 /* ReelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410122B7AAC1400C789F5 /* ReelsViewController.swift */; };
+		F3F410152B7AAC6200C789F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410142B7AAC6200C789F5 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		F3F410002B791DAF00C789F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3F410022B791DAF00C789F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3F410082B7935E600C789F5 /* ReelContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelContainerView.swift; sourceTree = "<group>"; };
+		F3F4100A2B7A7EEC00C789F5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F3F4100C2B7A979900C789F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F3F410102B7AA8A300C789F5 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		F3F410122B7AAC1400C789F5 /* ReelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsViewController.swift; sourceTree = "<group>"; };
+		F3F410142B7AAC6200C789F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,11 @@
 			children = (
 				F3F40FF42B791DAD00C789F5 /* AppDelegate.swift */,
 				F3F40FF82B791DAD00C789F5 /* ViewController.swift */,
+				F3F4100A2B7A7EEC00C789F5 /* TabBarController.swift */,
+				F3F410102B7AA8A300C789F5 /* AddViewController.swift */,
+				F3F410142B7AAC6200C789F5 /* ProfileViewController.swift */,
+				F3F4100C2B7A979900C789F5 /* SearchViewController.swift */,
+				F3F410122B7AAC1400C789F5 /* ReelsViewController.swift */,
 				F3F410082B7935E600C789F5 /* ReelContainerView.swift */,
 				F3F40FFD2B791DAF00C789F5 /* Assets.xcassets */,
 				F3F40FFF2B791DAF00C789F5 /* LaunchScreen.storyboard */,
@@ -134,8 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F4100D2B7A979900C789F5 /* SearchViewController.swift in Sources */,
+				F3F410112B7AA8A300C789F5 /* AddViewController.swift in Sources */,
 				F3F410092B7935E600C789F5 /* ReelContainerView.swift in Sources */,
+				F3F4100B2B7A7EEC00C789F5 /* TabBarController.swift in Sources */,
+				F3F410132B7AAC1400C789F5 /* ReelsViewController.swift in Sources */,
 				F3F40FF92B791DAD00C789F5 /* ViewController.swift in Sources */,
+				F3F410152B7AAC6200C789F5 /* ProfileViewController.swift in Sources */,
 				F3F40FF52B791DAD00C789F5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
