@@ -10,13 +10,32 @@ import UIKit
 
 class ReelContainerView: UIView {
     
-    lazy var mellowImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "profile_image")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    lazy var likeButton: UIButton = {
+        let button = UIButton()
+        let icon = UIImage(named: "like_icon")
+        button.setImage(icon, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+        }()
+        
+    lazy var likeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "100 k"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+        }()
+    
+    lazy var likedStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [likeButton, likeLabel])
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
 
     override init(frame: CGRect) {
@@ -29,11 +48,14 @@ class ReelContainerView: UIView {
     }
     
     func setupUI() {
-        addSubview(mellowImageView)
+        addSubview(likedStackView)
         
-        mellowImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        mellowImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        mellowImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        mellowImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        likedStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        likedStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        likedStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        likedStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        
+        likeButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        likeButton.widthAnchor.constraint(equalToConstant: 28).isActive = true
     }
 }

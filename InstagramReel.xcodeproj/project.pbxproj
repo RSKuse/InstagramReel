@@ -17,6 +17,9 @@
 		F3F410112B7AA8A300C789F5 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410102B7AA8A300C789F5 /* AddViewController.swift */; };
 		F3F410132B7AAC1400C789F5 /* ReelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410122B7AAC1400C789F5 /* ReelsViewController.swift */; };
 		F3F410152B7AAC6200C789F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410142B7AAC6200C789F5 /* ProfileViewController.swift */; };
+		F3F410182B7B6B6600C789F5 /* ManageReelsSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F410172B7B6B6600C789F5 /* ManageReelsSettingController.swift */; };
+		F3F4101B2B7B74C500C789F5 /* ManageReelsSettingController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F4101A2B7B74C500C789F5 /* ManageReelsSettingController+TableView.swift */; };
+		F3F4101D2B7B769D00C789F5 /* ManageReelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F4101C2B7B769D00C789F5 /* ManageReelsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		F3F410102B7AA8A300C789F5 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		F3F410122B7AAC1400C789F5 /* ReelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsViewController.swift; sourceTree = "<group>"; };
 		F3F410142B7AAC6200C789F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F3F410172B7B6B6600C789F5 /* ManageReelsSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageReelsSettingController.swift; sourceTree = "<group>"; };
+		F3F4101A2B7B74C500C789F5 /* ManageReelsSettingController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManageReelsSettingController+TableView.swift"; sourceTree = "<group>"; };
+		F3F4101C2B7B769D00C789F5 /* ManageReelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageReelsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,17 +72,36 @@
 			children = (
 				F3F40FF42B791DAD00C789F5 /* AppDelegate.swift */,
 				F3F40FF82B791DAD00C789F5 /* ViewController.swift */,
-				F3F4100A2B7A7EEC00C789F5 /* TabBarController.swift */,
-				F3F410102B7AA8A300C789F5 /* AddViewController.swift */,
-				F3F410142B7AAC6200C789F5 /* ProfileViewController.swift */,
-				F3F4100C2B7A979900C789F5 /* SearchViewController.swift */,
-				F3F410122B7AAC1400C789F5 /* ReelsViewController.swift */,
+				F3F410192B7B6B7500C789F5 /* Reels Settings */,
+				F3F410162B7B669400C789F5 /* TabBarControllers */,
 				F3F410082B7935E600C789F5 /* ReelContainerView.swift */,
 				F3F40FFD2B791DAF00C789F5 /* Assets.xcassets */,
 				F3F40FFF2B791DAF00C789F5 /* LaunchScreen.storyboard */,
 				F3F410022B791DAF00C789F5 /* Info.plist */,
 			);
 			path = InstagramReel;
+			sourceTree = "<group>";
+		};
+		F3F410162B7B669400C789F5 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F3F4100A2B7A7EEC00C789F5 /* TabBarController.swift */,
+				F3F4100C2B7A979900C789F5 /* SearchViewController.swift */,
+				F3F410102B7AA8A300C789F5 /* AddViewController.swift */,
+				F3F410122B7AAC1400C789F5 /* ReelsViewController.swift */,
+				F3F410142B7AAC6200C789F5 /* ProfileViewController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		F3F410192B7B6B7500C789F5 /* Reels Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F3F410172B7B6B6600C789F5 /* ManageReelsSettingController.swift */,
+				F3F4101C2B7B769D00C789F5 /* ManageReelsTableViewCell.swift */,
+				F3F4101A2B7B74C500C789F5 /* ManageReelsSettingController+TableView.swift */,
+			);
+			path = "Reels Settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,12 +174,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F410182B7B6B6600C789F5 /* ManageReelsSettingController.swift in Sources */,
 				F3F4100D2B7A979900C789F5 /* SearchViewController.swift in Sources */,
 				F3F410112B7AA8A300C789F5 /* AddViewController.swift in Sources */,
 				F3F410092B7935E600C789F5 /* ReelContainerView.swift in Sources */,
+				F3F4101D2B7B769D00C789F5 /* ManageReelsTableViewCell.swift in Sources */,
 				F3F4100B2B7A7EEC00C789F5 /* TabBarController.swift in Sources */,
 				F3F410132B7AAC1400C789F5 /* ReelsViewController.swift in Sources */,
 				F3F40FF92B791DAD00C789F5 /* ViewController.swift in Sources */,
+				F3F4101B2B7B74C500C789F5 /* ManageReelsSettingController+TableView.swift in Sources */,
 				F3F410152B7AAC6200C789F5 /* ProfileViewController.swift in Sources */,
 				F3F40FF52B791DAD00C789F5 /* AppDelegate.swift in Sources */,
 			);

@@ -46,15 +46,15 @@ class TabBarController: UITabBarController {
         addController.tabBarItem = addTabBarItem
         
         
-        let reelsTabBarItem = UITabBarItem(title: "Reels",
-                                              image: UIImage(named: "reel_menu_video_icon"),
-                                              selectedImage: UIImage(named: "reel_menu_video_icon"))
+        let reelsTabBarItem = UITabBarItem(title: "",
+                                              image: UIImage(named: "icon_notification"),
+                                              selectedImage: UIImage(named: "icon_notification_selected"))
         let videoReelsController = UINavigationController(rootViewController: ReelsViewController())
         videoReelsController.tabBarItem = reelsTabBarItem
        
-        let profileTabBarItem = UITabBarItem(title: "Profile",
-                                              image: UIImage(named: "profile_circled_icon"),
-                                              selectedImage: UIImage(named: "profile_circled_icon"))
+        let profileTabBarItem = UITabBarItem(title: "",
+                                              image: UIImage(named: "icon_home"),
+                                              selectedImage: UIImage(named: "icon_notification_selected"))
         let profileController = UINavigationController(rootViewController: ProfileViewController())
         profileController.tabBarItem = profileTabBarItem
         

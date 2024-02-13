@@ -9,11 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var reelView: ReelContainerView = {
-        let view = ReelContainerView()
-        view.mellowImageView.image = UIImage(named: "profile_image")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    lazy var mellowImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "profile_image")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     lazy var cameraClickButton: UIButton = {
@@ -35,91 +37,36 @@ class ViewController: UIViewController {
         return button
     }()
     
-    lazy var likeButton: UIButton = {
-        let button = UIButton()
-        let icon = UIImage(named: "like_icon")
-        button.setImage(icon, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-        }()
-        
-    lazy var likeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "100 k"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-        }()
-    
-    
-    lazy var likedStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [likeButton, likeLabel])
-        stackView.alignment = .center
-        stackView.distribution = .equalCentering
-        stackView.axis = .vertical
-        stackView.spacing = 2
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
+    lazy var likedStackView: ReelContainerView = {
+        let view = ReelContainerView()
+        view.likeLabel.text = "100"
+        //view.likeLabel.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
-    lazy var commentButton: UIButton = {
-        let button = UIButton()
+    lazy var commentStackView: ReelContainerView = {
+        let view = ReelContainerView()
+        view.likeLabel.text = "178"
         let icon = UIImage(named: "comment_icon-2")
-        button.setImage(icon, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-        }()
-        
-    lazy var commentsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "3 867"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-        }()
-    
-    
-    lazy var commentStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [commentButton, commentsLabel])
-        stackView.alignment = .center
-        stackView.distribution = .equalCentering
-        stackView.axis = .vertical
-        stackView.spacing = 2
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
+        view.likeButton.setImage(icon, for: UIControl.State.normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(commentButtonTapped)))
+        //view.likeButton.addTarget(self, action: #selector(commentButtonTapped), for: .touchUpInside)
+        return view
     }()
     
-    lazy var shareButton: UIButton = {
-        let button = UIButton()
+    lazy var shareStackView: ReelContainerView = {
+        let view = ReelContainerView()
+        view.likeLabel.text = "178"
         let icon = UIImage(named: "paper_plane_outline_icon")
-        button.setImage(icon, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-        }()
-        
-    lazy var shareLabel: UILabel = {
-        let label = UILabel()
-        label.text = "158 k"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-        }()
-    
-    
-    lazy var shareStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [shareButton, shareLabel])
-        stackView.alignment = .center
-        stackView.distribution = .equalCentering
-        stackView.axis = .vertical
-        stackView.spacing = 2
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
+        view.likeButton.setImage(icon, for: UIControl.State.normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(commentButtonTapped)))
+        //view.likeButton.addTarget(self, action: #selector(commentButtonTapped), for: .touchUpInside)
+        return view
     }()
     
     lazy var moreButton: UIButton = {
@@ -137,7 +84,7 @@ class ViewController: UIViewController {
         imageView.image = UIImage(named: "emperor_Kwesta")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 8
+        imageView.layer.cornerRadius = 7
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -152,54 +99,47 @@ class ViewController: UIViewController {
         
     }()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        view.addSubview(reelView)
+        view.addSubview(mellowImageView)
         view.addSubview(likedStackView)
         view.addSubview(commentStackView)
         view.addSubview(shareStackView)
         view.addSubview(moreButton)
         view.addSubview(profileImageView)
         view.addSubview(stackView)
+        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
         
-                
-        reelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        reelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        reelView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        reelView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-                
-
-        likedStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        
+        mellowImageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        mellowImageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        mellowImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        mellowImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        
+        likedStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8).isActive = true
         
         commentStackView.topAnchor.constraint(equalTo: likedStackView.bottomAnchor, constant: 16).isActive = true
-        commentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        commentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8).isActive = true
         
         shareStackView.topAnchor.constraint(equalTo: commentStackView.bottomAnchor, constant: 16).isActive = true
-        shareStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        shareStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8).isActive = true
         
-        moreButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        moreButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -14).isActive = true
         moreButton.topAnchor.constraint(equalTo: shareStackView.bottomAnchor, constant: 16).isActive = true
         moreButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
         moreButton.widthAnchor.constraint(equalToConstant: 28).isActive = true
         
         profileImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
-        profileImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 32).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        profileImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -14).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
         
-        likeButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        likeButton.widthAnchor.constraint(equalToConstant: 28).isActive = true
-        
-        commentButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        commentButton.widthAnchor.constraint(equalToConstant: 28).isActive = true
-        
-        shareButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        shareButton.widthAnchor.constraint(equalToConstant: 28).isActive = true
         
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
-        stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -14).isActive = true
         
     }
     
@@ -214,10 +154,17 @@ class ViewController: UIViewController {
         volumeButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
         
         navigationItem.rightBarButtonItems = [cameraButton, volumeBarButton]
-  
         
     }
-
-
+    
+    @objc func commentButtonTapped() {
+        print("comment button tapped")
+        
+    }
+    @objc func moreButtonTapped() {
+        let manageReelsSettingController = ManageReelsSettingController()
+        // Present the ManageReelsSettingController
+        present(manageReelsSettingController, animated: true, completion: nil)
+    }
 }
 
